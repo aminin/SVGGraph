@@ -65,7 +65,7 @@ class AxisDoubleEnded extends Axis
             }
         }
 
-        usort($new_points, ($this->direction < 0 ? 'gridpoint_rsort' : 'gridpoint_sort'));
+        usort($new_points, ($this->direction < 0 ? [GridPoint::class, 'rsort'] : [GridPoint::class, 'sort']));
         return $new_points;
     }
 

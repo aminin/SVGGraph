@@ -118,13 +118,7 @@ class Axis
     /**
      * Determine the axis divisions
      */
-    private function findDivision(
-        $length,
-        $min,
-        &$count,
-        &$neg_count,
-        &$magnitude
-    ) {
+    private function findDivision($length, $min, &$count, &$neg_count, &$magnitude) {
         if ($length / $count >= $min) {
             return;
         }
@@ -371,8 +365,7 @@ class Axis
             if ($key !== $value) {
                 $text = $key;
             } else {
-                $text = $this->unitsBefore . Graph::numString($value,
-                        $this->decimalDigits) . $this->unitsAfter;
+                $text = $this->unitsBefore . Graph::numString($value, $this->decimalDigits) . $this->unitsAfter;
             }
         }
         return $text;

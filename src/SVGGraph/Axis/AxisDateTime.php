@@ -138,8 +138,7 @@ class AxisDateTime extends Axis
         }
 
         if (!empty($fixedDivision)) {
-            list($units, $count) = AxisDateTime::ParseFixedDivisions($fixedDivision,
-                $minValue, $maxValue, $length);
+            list($units, $count) = AxisDateTime::ParseFixedDivisions($fixedDivision, $minValue, $maxValue, $length);
             $start = AxisDateTime::StartTime($start_date, $units, $count);
             $end = AxisDateTime::EndTime($end_date, $units, $count, $start);
 
@@ -160,8 +159,7 @@ class AxisDateTime extends Axis
         } else {
 
             // find a sensible division
-            $div = AxisDateTime::FindDivision($start_date, $end_date, $length,
-                $minSpace);
+            $div = $this->findDivision($start_date, $end_date, $length, $minSpace);
             $this->div = $div;
             $this->start = $div[0]->format('U');
             $this->end = $div[1]->format('U');
@@ -201,7 +199,7 @@ class AxisDateTime extends Axis
      * @return array|null|void
      * @throws \Exception
      */
-    private static function findDivision(
+    private function findDivision(
         $start,
         $end,
         $length,
@@ -510,8 +508,7 @@ class AxisDateTime extends Axis
             $start_date = new \DateTime('@' . $this->start);
             $end_date = new \DateTime('@' . $this->end);
 
-            $div = AxisDateTime::FindDivision($start_date, $end_date,
-                $this->length, $minSpace, $this->division);
+            $div = $this->FindDivision($start_date, $end_date, $this->length, $minSpace, $this->division);
 
             // if no divisions found, stop now
             if (is_null($div)) {
