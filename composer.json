@@ -4,10 +4,20 @@
   "homepage": "http://www.goat1000.com/svggraph.php",
   "license": "LGPL-3.0",
   "require": {
-    "php": ">=5.2.0",
+    "php": ">=5.5",
     "lib-pcre": "*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8|^5.5",
+    "squizlabs/php_codesniffer": "^2.7"
+  },
   "autoload": {
-    "classmap": ["SVGGraph.php"]
+    "psr-4": {
+      "SVGGraph\\": "src/SVGGraph/"
+    },
+    "files": [ "src/polyfill.php" ],
+    "exclude-from-classmap": [
+      "src/SVGGraph/Tests/"
+    ]
   }
 }
