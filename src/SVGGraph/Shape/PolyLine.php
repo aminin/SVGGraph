@@ -15,7 +15,7 @@ class PolyLine extends Shape
         }
         $count = count($this->attrs['points']);
         if ($count < 4 || $count % 2 == 1) {
-            throw new Exception("Shape must have at least 2 pairs of points");
+            throw new \Exception("Shape must have at least 2 pairs of points");
         }
     }
 

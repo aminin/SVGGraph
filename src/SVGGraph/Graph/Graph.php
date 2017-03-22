@@ -959,7 +959,7 @@ abstract class Graph
             } else {
                 $err = array_diff_key($colour, array_keys(array_keys($colour)));
                 if ($err) {
-                    throw new Exception('Malformed gradient/pattern');
+                    throw new \Exception('Malformed gradient/pattern');
                 }
                 $gradient_id = $this->AddGradient($colour, $key, $radial_gradient);
                 $colour = "url(#{$gradient_id})";
@@ -1011,7 +1011,7 @@ abstract class Graph
     protected function CheckValues()
     {
         if ($this->values->error) {
-            throw new Exception($this->values->error);
+            throw new \Exception($this->values->error);
         }
     }
 

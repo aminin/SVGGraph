@@ -62,7 +62,7 @@ abstract class Shape
         }
 
         if (count($missing)) {
-            throw new Exception("{$this->element} attribute(s) not found: " .
+            throw new \Exception("{$this->element} attribute(s) not found: " .
                 implode(', ', $missing));
         }
 

@@ -508,19 +508,19 @@ abstract class PointGraph extends GridGraph
             }
             if (is_array($range)) {
                 if (count($range) !== 2) {
-                    throw new Exception('Best fit range must contain start and end values');
+                    throw new \Exception('Best fit range must contain start and end values');
                 }
                 $start = array_shift($range);
                 $end = array_shift($range);
 
                 if (!is_null($start) && !is_numeric($start)) {
-                    throw new Exception('Best fit range start not numeric or NULL');
+                    throw new \Exception('Best fit range start not numeric or NULL');
                 }
                 if (!is_null($end) && !is_numeric($end)) {
-                    throw new Exception('Best fit range end not numeric or NULL');
+                    throw new \Exception('Best fit range end not numeric or NULL');
                 }
                 if (!is_null($start) && !is_null($end) && $end <= $start) {
-                    throw new Exception('Best fit range start >= end');
+                    throw new \Exception('Best fit range start >= end');
                 }
             }
 
